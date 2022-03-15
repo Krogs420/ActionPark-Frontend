@@ -12,26 +12,38 @@
 
 #header{
   display: inline-block;
-  padding: 60px;
+  width: 100%;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 #navbar{
-  text-align: center;
-  height: 50px;
+  text-align: right;
+  height: 85px;
   width: 100%;
   color: black;
-  background: #faf9f6;
+  background: gray;
   box-shadow: 5px 4px 14px -6px;
   margin-bottom: 1px;
 }
 
 #navbar ul{
+  margin-right: 25%;
+
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 25px;
+}
+
+#navbar li:first-child{
+  padding-right: 450px;
 }
 #navbar li{
   font-size: 20px;
   display: inline-block;
   margin-right: 10px;
+  color: white;
+}
+
+#navbar a{
+  color: white;
 }
