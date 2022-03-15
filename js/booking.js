@@ -1,5 +1,17 @@
 const times = ["08:00", "10:00", "12:00","14:00","16:00","18:00","19:00","20:00","22:00","23:00"];
 
+
+
+$(document).ready(function() {
+  $('.fa-calendar').click(function(){
+    $(document).ready(function(){
+      $("#document_date").datepicker().focus();
+    });
+  });
+});
+
+
+
 function fillEventTimes(time, index){
   const viewTimes = document.getElementById("booking-day");
   viewTimes.textContent = time;

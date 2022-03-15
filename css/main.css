@@ -14,6 +14,7 @@
   display: inline-block;
   width: 100%;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 #navbar{
@@ -34,7 +35,7 @@
 }
 
 #navbar li:first-child{
-  padding-right: 500px;
+  padding-right: 450px;
 }
 #navbar li{
   font-size: 20px;
