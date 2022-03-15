@@ -25,6 +25,11 @@
   background: gray;
   box-shadow: 5px 4px 14px -6px;
   margin-bottom: 1px;
+  opacity: 0.5;
+}
+
+#navbar:hover {
+  opacity: 1.0;
 }
 
 #navbar ul{
