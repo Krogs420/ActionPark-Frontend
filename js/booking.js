@@ -1,6 +1,9 @@
-const times = ["08:00", "10:00", "12:00","14:00","16:00","18:00","19:00","20:00","22:00","23:00"];
+const times = ["08:00","09:00", "10:00","11:00", "12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00", "22:00","23:00"];
+const out = function (str){
+  console.log(str)
+}
 
-
+const pbCreateTimeTable = document.getElementById("pbCreateTimeTable")
 
 $(document).ready(function() {
   $('.fa-calendar').click(function(){
@@ -11,35 +14,19 @@ $(document).ready(function() {
 });
 
 
-
-function fillEventTimes(time, index){
-  const viewTimes = document.getElementById("booking-day");
-  viewTimes.textContent = time;
-  viewTimes.value =index
-  console.log(time)
+let txt = "";
+for (let x in times) {
+  txt += times[x] + " ";
+  document.getElementById("times").innerHTML = txt;
 }
 
-function addTimes(btn){
-  times.forEach(fillEventTimes);
-}
 
-function selectTime(btn){
-  fillTimes.value;
-}
 
-function fillTimes(){
-  for (const timeKey of timeKeyMap.keys()){
-    const el = document.createElement("option")
-    el.textContent  = timeKey;
-    el.value = timeKeyMap.get(timeKey);
 
-  }
-}
+pbCreateTimeTable-addEventListener('click', createTableFromMap)
 
-const pbGetTimes = document.getElementById("pbGetTimes")
-const pbFillDD = document.getElementById("pbGetTimes")
 
-pbGetTimes.addEventListener('click', fillEventTimes)
-pbFillDD.addEventListener('click', addTimes)
+
+
 
 
