@@ -22,10 +22,12 @@
   height: 85px;
   width: 100%;
   color: black;
-  background: gray;
+  background: #212529;
   box-shadow: 5px 4px 14px -6px;
   margin-bottom: 1px;
   opacity: 0.5;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
 }
 
 #navbar:hover {
