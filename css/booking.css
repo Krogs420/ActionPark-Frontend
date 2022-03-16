@@ -28,7 +28,6 @@
 }
 
 .activity-info{
-  width: 35%;
   height: 100%;
   background-color: orange;
 }
@@ -74,7 +73,5 @@
 }
 
 #timetable{
-  background-color: green;
-  width: 100px;
   height: 100px;
 }

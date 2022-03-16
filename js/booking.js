@@ -15,6 +15,9 @@ function addRow() {
   for ( let x of times){
     let timeName = document.createElement("button");
     timeName.style.backgroundColor = "Green"
+    timeName.style.width = "100px"
+    timeName.style.height = "50px"
+    timeName.style.display = "inline-block"
     const tidspunkt = document.createTextNode(x);
     timeName.append(tidspunkt);
     timeTable.append(timeName);
