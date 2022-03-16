@@ -1,0 +1,62 @@
+
+#content {
+  margin: auto;
+  width: 50%;
+  height: 100%;
+}
+
+#booking-box button {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+
+.activities{
+  width: 100%;
+
+}
+
+.activity-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 250px;
+  background-color: gray;
+  display: flex;
+}
+
+.activity-info{
+  width: 35%;
+  height: 100%;
+  background-color: orange;
+}
+
+.activity-info h2 {
+  margin: auto;
+}
+.activity-info p {
+  margin: auto;
+}
+
+.image-poster img{
+  max-height: 212px;
+  max-width: 246px;
+  object-fit: fill;
+}
+
+.times{
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+
+}
+
+#book button{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  color: white;
+}
