@@ -28,6 +28,11 @@
   justify-content: center;
 }
 
+.logo {
+  font-size: 60px;
+  font-family: 'Comic Sans MS';
+}
+
 #navbar{
   text-align: right;
   height: 85px;
