@@ -1,0 +1,64 @@
+body {
+  overflow-x: hidden;
+  background-color: #212529;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+  flex: 50%;
+  margin: 20px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button {
+  border: none;
+  background-color: #9370db;
+  border-radius: 2px;
+  height: 2em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* video styles */
+video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+}
+
+.index-intro {
+  width: 100%;
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+
