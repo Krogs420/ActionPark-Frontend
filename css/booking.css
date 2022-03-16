@@ -13,7 +13,7 @@
   color: white;
 }
 
-.activities{
+.activities {
   width: 100%;
 
 }
@@ -27,7 +27,7 @@
   display: flex;
 }
 
-.activity-info{
+.activity-info {
   height: 100%;
   background-color: orange;
 }
@@ -35,36 +35,37 @@
 .activity-info h2 {
   margin: auto;
 }
+
 .activity-info p {
   margin: auto;
 }
 
-.image-poster{
+.image-poster {
   max-height: 212px;
   max-width: 246px;
   object-fit: fill;
 }
 
-.image-poster img{
+.image-poster img {
   max-height: 212px;
   max-width: 246px;
   object-fit: fill;
 }
 
-#timetable{
+#timetable {
   width: 100%;
   height: 100%;
   background-color: gray;
 }
 
-#times{
+#times {
   display: inline;
   background-color: green;
   margin: 5px;
 
 }
 
-#book button{
+#book button {
   display: inline-block;
   width: 150px;
   height: 50px;
@@ -72,6 +73,13 @@
   color: white;
 }
 
-#timetable{
+#timetable {
   height: 100px;
+}
+
+.time-button {
+  background-color: lawngreen;
+  width: 100px;
+  height: 50px;
+  display: inline-block;
 }

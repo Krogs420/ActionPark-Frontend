@@ -14,10 +14,7 @@ $(document).ready(function () {
 function addRow() {
   for ( let x of times){
     let timeName = document.createElement("button");
-    timeName.style.backgroundColor = "Green"
-    timeName.style.width = "100px"
-    timeName.style.height = "50px"
-    timeName.style.display = "inline-block"
+    timeName.classList.add("time-button");
     const tidspunkt = document.createTextNode(x);
     timeName.append(tidspunkt);
     timeTable.append(timeName);
@@ -30,7 +27,10 @@ function createTimeTableFromMap() {
   )
 }
 
-const pbCreateTimeTable = document.getElementById("pbCreateTimeTable");
+
+
+
+const pbCreateTimeTable = document.getElementById("document_date");
 const timeTable = document.getElementById("timetable")
 
 pbCreateTimeTable.addEventListener('click', addRow)
