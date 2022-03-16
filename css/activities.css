@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
+body {
+  overflow-x: hidden;
+  background-color: #212529;
+
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h2 {
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  flex: 50%;
+  margin: 20px;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  color: #ffffff;
+}
+
+.row {
+  display: flex;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*
+button {
+  border: none;
+  background-color: #9370db;
+  border-radius: 2px;
+  height: 2em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+ */
+
+/* video styles */
+
+
+.header {
+  position: relative;
+  height: 50vh;
+  text-align: center;
+  justify-content: center;
+  width: 100vw;
+
+
+  object-fit: cover;
+
+  top: 0;
+  left: 0;
+}
+
+.index-intro {
+  width: 100%;
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+/* button-50 herfra: https://getcssscan.com/css-buttons-examples
+ */
+.button-50 {
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1.7px;
+}
+
+.button-50:hover {
+  opacity: 0.5;
+}
+
+#content {
+  margin-top: 20px;
+  position: absolute;
+}
+
+.activities-img {
+  display: flex;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+
+

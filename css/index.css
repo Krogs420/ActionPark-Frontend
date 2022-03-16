@@ -100,3 +100,13 @@ video {
   opacity: 0.5;
 }
 
+.activities-img {
+  width: 100vw;
+  height: 50vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
