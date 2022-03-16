@@ -1,8 +1,23 @@
+body {
+  overflow-x: hidden;!important
+  background-color: #212529; !important
+
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h2 {
+  line-height: 2;
+  text-transform: uppercase;
+}
 
 #content {
   margin: auto;
   width: 50%;
   height: 100%;
+
 }
 
 #booking-box button {
@@ -29,7 +44,8 @@
 
 .activity-info {
   height: 100%;
-  background-color: orange;
+  background-color: #000;
+  color: white;
 }
 
 .activity-info h2 {
@@ -78,8 +94,25 @@
 }
 
 .time-button {
-  background-color: lawngreen;
+  background-color: limegreen;
   width: 100px;
   height: 50px;
   display: inline-block;
+  border-radius: 8px;
+  margin: auto;
+}
+
+.time-button:active{
+  background-color: blue;
+  color: white;
+}
+#book{
+  position:absolute;
+  left: 69%;
+  margin-bottom: 20px;
+}
+
+#book a{
+color: white;
+
 }
