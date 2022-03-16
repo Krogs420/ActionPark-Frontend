@@ -19,22 +19,21 @@
 <div id="content">
 
   <!--Taget fra https://javascript.tutorialink.com/icon-clicking-to-show-the-date/ -->
-  <div class="col-lg-12" style="margin-top:10px;">
-    <label class="form-group control-label col-lg-2">Tarikh Surat:<span style="color:red;">&nbsp;*</span></label>
-    <div class="input-group col-lg-6">
-      &nbsp <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-      <input style="width: 97.5%;" type="text" class="form-control datepicker" id="document_date" name="document_date"
-             value="" data-date-format="yyyy-mm-dd" readonly><br>
-    </div>
-  </div>
+
 
   <!--Taget fra https://javascript.tutorialink.com/icon-clicking-to-show-the-date/ -->
   <!-- Øverste knapper på siden-->
 
   <div id="booking-box">
-    <button id="pbCreateTimeTable">Vælg Dag</button>
-    <button>Antal deltagere</button>
-
+    <!--  <button id="pbCreateTimeTable">Vælg Dag</button> -->
+    <div class="col-lg-12" style="margin-top:10px;">
+      <label class="form-group control-label col-lg-2">vælg en dag *</label>
+      <div class="input-group col-lg-6">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+        <input style="width: 97.5%;" type="text" class="form-control datepicker" id="document_date" name="document_date"
+               value="" data-date-format="yyyy-mm-dd" readonly><br>
+      </div>
+    </div>
   </div>
   <!-- Øverste knapper på siden-->
 
@@ -46,8 +45,8 @@
         <img src="../images/Paintball2.jpg"/></div>
     </div>
     <!--Tider her -->
-    <table  id="timetable">
-        <th>Time</th>
+    <table id="timetable">
+      <th>Time</th>
     </table>
   </div>
   <!--Tider her -->
@@ -62,18 +61,13 @@
         <img src="../images/header_gokart-e1424087434508-1024x468.jpg" height="468" width="1024"/>
       </div>
     </div>
-    <!--Tider her -->
-    <table  class="timetable">
-      <th>Time</th>
-    </table>
-    <!--Tider her -->
   </div>
   <!-- Aktivitets Boksene og tider-->
 
   <!-- Aktivitets Boksene og tider-->
   <div class="activity-box">
     <div class="activity-info">
-      <h2>Sumo Wrestling</h2>
+      <h2>Sumo</h2>
       <div class="image-poster">
         <img src="../images/Sumo-Wrestling_Players3_960x720.jpg" height="720" width="960"/></div>
     </div>
@@ -109,7 +103,7 @@
   </div>
   <!-- Aktivitets Boksene og tider-->
 
-  <button id="book">Book Valgte</button>
+  <button id="book" class="btn btn-primary"><a href="form.html">Book Valgte</a></button>
 
 </div>
 </div>

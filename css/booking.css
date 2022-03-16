@@ -1,8 +1,23 @@
+body {
+  overflow-x: hidden;!important
+  background-color: #212529; !important
+
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h2 {
+  line-height: 2;
+  text-transform: uppercase;
+}
 
 #content {
   margin: auto;
   width: 50%;
   height: 100%;
+
 }
 
 #booking-box button {
@@ -13,7 +28,7 @@
   color: white;
 }
 
-.activities{
+.activities {
   width: 100%;
 
 }
@@ -27,45 +42,46 @@
   display: flex;
 }
 
-.activity-info{
-  width: 35%;
+.activity-info {
   height: 100%;
-  background-color: orange;
+  background-color: #000;
+  color: white;
 }
 
 .activity-info h2 {
   margin: auto;
 }
+
 .activity-info p {
   margin: auto;
 }
 
-.image-poster{
+.image-poster {
   max-height: 212px;
   max-width: 246px;
   object-fit: fill;
 }
 
-.image-poster img{
+.image-poster img {
   max-height: 212px;
   max-width: 246px;
   object-fit: fill;
 }
 
-#timetable{
+#timetable {
   width: 100%;
   height: 100%;
   background-color: gray;
 }
 
-#times{
+#times {
   display: inline;
   background-color: green;
   margin: 5px;
 
 }
 
-#book button{
+#book button {
   display: inline-block;
   width: 150px;
   height: 50px;
@@ -73,8 +89,30 @@
   color: white;
 }
 
-#timetable{
-  background-color: green;
-  width: 100px;
+#timetable {
   height: 100px;
+}
+
+.time-button {
+  background-color: limegreen;
+  width: 100px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 8px;
+  margin: auto;
+}
+
+.time-button:active{
+  background-color: blue;
+  color: white;
+}
+#book{
+  position:absolute;
+  left: 69%;
+  margin-bottom: 20px;
+}
+
+#book a{
+color: white;
+
 }
