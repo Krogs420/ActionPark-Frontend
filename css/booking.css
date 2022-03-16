@@ -72,3 +72,9 @@
   background-color: black;
   color: white;
 }
+
+#timetable{
+  background-color: green;
+  width: 100px;
+  height: 100px;
+}
