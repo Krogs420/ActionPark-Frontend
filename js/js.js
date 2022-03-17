@@ -1,13 +1,11 @@
 console.log("Hello world")
 
 $(function () {
-  $("#footer").load("fragments.html");
+  $("#header").load("fragments.html");
 });
 
-
-
 $(function () {
-  $("#header").load("fragments.html");
+  $("#footer").load("fragments.html");
 });
 
 
