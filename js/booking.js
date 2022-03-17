@@ -2,6 +2,12 @@ const times = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "1
 const out = function (str) {
   console.log(str)
 }
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function onClick() {
+  btn.style.backgroundColor = 'grey';
+  btn.style.color = 'green';
+})
 
 $(document).ready(function () {
   $('.fa-calendar').click(function () {
