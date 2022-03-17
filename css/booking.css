@@ -18,6 +18,7 @@ h2 {
   width: 50%;
   height: 100%;
 
+
 }
 
 #booking-box button {
@@ -109,10 +110,11 @@ h2 {
 #book{
   position:absolute;
   left: 69%;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
 #book a{
 color: white;
+
 
 }
