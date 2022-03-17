@@ -22,6 +22,15 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+.form-row{
+  display: inline-block;
+  width: 150%;
+}
+
+.form-control{
+  width: 100%;
+}
+
 /* Add a background color and some padding around the form */
 .container {
   border-radius: 5px;
