@@ -2,12 +2,6 @@ const times = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "1
 const out = function (str) {
   console.log(str)
 }
-const btn = document.getElementById('btn');
-
-btn.addEventListener('click', function onClick() {
-  btn.style.backgroundColor = 'grey';
-  btn.style.color = 'green';
-})
 
 $(document).ready(function () {
   $('.fa-calendar').click(function () {
@@ -16,15 +10,18 @@ $(document).ready(function () {
     });
   });
 });
-
-function addRow() {
-  for ( let x of times){
+ function addRow() {
+  for (let x of times) {
     let timeName = document.createElement("button");
     timeName.classList.add("time-button");
     const tidspunkt = document.createTextNode(x);
     timeName.append(tidspunkt);
+    timeName.addEventListener('click',clickButton)
     timeTable.append(timeName);
+
+
   }
+
 }
 
 function createTimeTableFromMap() {
@@ -33,11 +30,19 @@ function createTimeTableFromMap() {
   )
 }
 
+async function clickButton(){
+   out("button should be red")
+  return document.getElementsByClassName('time-button').backgroundColor = "white";
 
+}
 
 
 const pbCreateTimeTable = document.getElementById("document_date");
 const timeTable = document.getElementById("timetable")
+
+
+
+
 
 pbCreateTimeTable.addEventListener('click', addRow)
 

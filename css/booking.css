@@ -74,13 +74,15 @@ h2 {
   height: 100%;
   background-color: gray;
 }
-
+/*
 #times {
   display: inline;
   background-color: green;
   margin: 5px;
 
 }
+ */
+
 
 #book button {
   display: inline-block;
@@ -95,18 +97,19 @@ h2 {
 }
 
 .time-button {
-  background-color: limegreen;
   width: 100px;
   height: 50px;
   display: inline-block;
   border-radius: 8px;
   margin: auto;
 }
-
+/*
 .time-button:active{
   background-color: blue;
   color: white;
 }
+*/
+
 #book{
   position:absolute;
   left: 69%;
