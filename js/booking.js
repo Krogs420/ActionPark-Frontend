@@ -10,38 +10,55 @@ $(document).ready(function () {
     });
   });
 });
- function addRow() {
+
+const activities = 'http://localhost:8080/getActivities';
+
+const activityMap = new Map;
+
+function fetchActivites() {
+  return fetch(activities).then(response => response.json())
+
+}
+
+async function createActivities() {
+  const activityList = await fetchActivites();
+  activityList.forEach((activity, index) => {
+    activityMap.set(activity.name, activity)
+  })
+}
+
+function createTimeTableFromMap() {
+  out("create table");
+  for (activityKey of activityMap.keys()) {
+    out(activityMap.get(activityKey))
+  }
+}
+
+function addRow() {
   for (let x of times) {
     let timeName = document.createElement("button");
     timeName.classList.add("time-button");
     const tidspunkt = document.createTextNode(x);
     timeName.append(tidspunkt);
-    timeName.addEventListener('click',clickButton)
+    timeName.addEventListener('click', clickButton)
     timeTable.append(timeName);
 
 
   }
-
 }
 
-function createTimeTableFromMap() {
-  out("create table");
-  timeMap.forEach(times => addRow(times)
-  )
-}
-
-async function clickButton(){
-   out("button should be red")
+async function clickButton() {
+  out("button should be red")
   return document.getElementsByClassName('time-button').backgroundColor = "white";
 
 }
 
 
+createActivities();
+createTimeTableFromMap()
+
 const pbCreateTimeTable = document.getElementById("document_date");
 const timeTable = document.getElementById("timetable")
-
-
-
 
 
 pbCreateTimeTable.addEventListener('click', addRow)
