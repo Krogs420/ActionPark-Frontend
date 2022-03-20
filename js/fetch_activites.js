@@ -1,5 +1,7 @@
 const activities = 'http://localhost:8080/getActivities';
-
+const out = function (str) {
+  console.log(str)
+}
 const activityMap = new Map;
 
 function fetchActivites() {
@@ -10,14 +12,16 @@ function fetchActivites() {
 async function createActivities() {
   const activityList = await fetchActivites();
   activityList.forEach((activity, index) => {
-    activityMap.set(activity.activityName, activity)
+    activityMap.set(activity.activityName, index)
+    document.createElement('li',activityMap[index])
+    out("does it work?")
   })
+  out(activityMap)
 }
 
 function createTimeTableFromMap() {
   out("create table");
   for (activityKey of activityMap.keys()) {
-    out(activityMap.get(activityKey))
   }
 }
 
