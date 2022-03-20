@@ -18,8 +18,16 @@ h2 {
   width: 50%;
   height: 100%;
 
-
 }
+
+.allback-book {
+  background-color: #212529;
+  height: 100vh;
+}
+#booking-box {
+  color: white;
+}
+
 
 #booking-box button {
   display: inline-block;
