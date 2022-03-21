@@ -111,22 +111,25 @@
   left: 0;
 }
 
-#footer{
-  display: inline-block;
-  color: black;
-  background: #212529;
+#footer {
+  position: sticky;
+
+}
+
+#footerstay {
+  position: sticky;
+  bottom:0;
+  left:0;
+  right:0;
   width: 100%;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  position: fixed;
-  justify-content: center;
+  background-color: #595555;
 }
 
 #footer ul{
   display: inline-block;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
 }
 #footer img{
  width: 50px;
@@ -143,7 +146,7 @@
 }
 
 #footer li{
-  margin-left: 100px;
+  margin-left: 35px;
   font-size: 20px;
   display: inline-block;
   margin-right: 10px;
