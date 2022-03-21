@@ -23,6 +23,13 @@ async function createActivities() {
     let activityh2 = document.createElement("h2");
     activityh2.textContent = x.activityName;
     activityinfo.append(activityh2)
+    let activityImgPoster = document.createElement("div");
+    activityinfo.append(activityImgPoster);
+    activityImgPoster.classList.add("image-poster");
+    let activityImage = document.createElement("img");
+    activityImgPoster.append(activityImage);
+    activityImage.src = x.activityImageHref;
+
     /*
     activityinfo.append(activityh2);
     const activityNameTag = document.createTextNode(x);
