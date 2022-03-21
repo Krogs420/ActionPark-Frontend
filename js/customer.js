@@ -24,9 +24,7 @@ async function handleFormSubmit(event) {
   try {
     const formData = new FormData(form);
     const customer = await postFormDataAsJson(url, formData).then(response => response.json());
-    console.log(localStorage["test"]);
     await getBooking(customer, localStorage["test"])
-    console.log(customer);
     //location.href = 'confirmation.html';
   } catch (err) {
     alert(err.message);
