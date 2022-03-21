@@ -9,19 +9,23 @@ $(document).ready(function () {
 });
 
 
-
+/*
 function createTimeRows() {
   for (let x of times) {
     let timeName = document.createElement("button");
     timeName.classList.add("time-button");
     const tidspunkt = document.createTextNode(x);
     timeName.append(tidspunkt);
-    timeName.addEventListener('click', clickButton)
+
+   timeName.addEventListener('click', clickButton);
+   out(x);
     timeTable.append(timeName);
 
 
   }
 }
+
+ */
 
 async function clickButton() {
   out("button should be red")
@@ -29,12 +33,8 @@ async function clickButton() {
 
 }
 
-const pbCreateTimeTable = document.getElementById("document_date");
+const pbCreateTimeTable = document.getElementById("btn2");
 const timeTable = document.getElementById("timetable")
 
 
-
-
-
-
-
+pbCreateTimeTable.addEventListener('click', createTimeRows)
