@@ -2,7 +2,8 @@ const activities = 'http://localhost:8080/api/activity/all-activities';
 const button = document.getElementById("btn")
 const activityTable = document.getElementById("activityTable")
 const bookingTable = document.getElementById('bline-table')
-
+const bookingBttn = document.getElementById('book2')
+const bookingLineArray = [];
 const out = function (str) {
   console.log(str)
 }
@@ -44,12 +45,15 @@ async function createActivities() {
       const tidspunkt = document.createTextNode(times[i]);
       timeName.append(tidspunkt);
       timeTable.append(timeName);
-      timeName.addEventListener('click',  () => addBookinglineToBooking(x, times[i]))
+      timeName.addEventListener('click', () => {
+        addBookinglineToBooking(x, times[i])
+        bookingLineArray.push(x)
+      })
     }
   }
 }
 
-function addBookinglineToBooking(activity, time){
+function addBookinglineToBooking(activity, time) {
   const tableRow = document.createElement('tr');
   const td1 = document.createElement('td')
   td1.textContent = activity.activityName;
@@ -61,9 +65,7 @@ function addBookinglineToBooking(activity, time){
   tableRow.append(td2);
   tableRow.append(td3);
   bookingTable.append(tableRow)
-  console.log('hej')
 }
-
 
 function addActivity(activity) {
   const rowCount = activityTable.rows.length;
@@ -82,8 +84,71 @@ function addActivity(activity) {
   cell.appendChild(imgTag);
 }
 
+async function postBooking() {
+  let bookingObjsArray = [];
+
+  //skal komme et andet sted fra, hard coded for nu
+  const booking1 = {
+    contenderAmount: 4,
+  }
+
+  for (let activity of bookingLineArray) {
+    const test =  await postBookingLine(activity).then(response => response.json())
+    const test2 = await test;
+    bookingObjsArray.push(test2)
+  }
+
+  booking1.bookingLines = bookingObjsArray
+  //skal komme et andet sted fra, hard coded for nu
+  booking1.customer = {customerId: 1};
+
+
+  const url = 'http://localhost:8080/api/booking/add'
+
+  const fetchOptions = {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(booking1)
+  };
+  const response = await fetch(url, fetchOptions);
+  if (!response) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+}
+
+function getActivityList() {
+
+}
+
+bookingBttn.addEventListener('click', postBooking)
+
+
 function createActivityMap() {
   out("create table");
   activityMap.forEach(activity => createActivities(activity))
+}
+
+async function postBookingLine(activity) {
+
+  const url = 'http://localhost:8080/api/booking-line/add'
+  const booklingline = {}
+  booklingline.activity = activity;
+
+  const fetchOptions = {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(booklingline)
+  };
+  const response = await fetch(url, fetchOptions);
+  if (!response) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+  return response;
+}
+
+function getActivityList() {
+
 }
 

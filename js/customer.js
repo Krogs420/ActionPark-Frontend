@@ -29,7 +29,6 @@ async function handleFormSubmit(event) {
     alert(err.message);
     out(err);
   }
-  event.stopPropagation();
 }
 
 
@@ -49,4 +48,5 @@ async function postFormDataAsJson(url, formData) {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
   }
+
 }
