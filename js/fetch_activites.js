@@ -109,7 +109,7 @@ async function postBooking() {
     body: JSON.stringify(booking1)
   };
   const response = await fetch(url, fetchOptions).then(response => response.json());
-  localStorage["test"] = response.bookingId;
+  localStorage["booking-id"] = response.bookingId;
   if (!response) {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
