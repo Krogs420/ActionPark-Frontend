@@ -30,7 +30,6 @@ function createTimeRows() {
 async function clickButton() {
   out("button should be red")
   return document.getElementsByClassName('time-button').backgroundColor = "white";
-
 }
 
 const pbCreateTimeTable = document.getElementById("btn2");

@@ -126,6 +126,23 @@ h2 {
 
 #book a{
 color: white;
+}
 
+.bline-div{
+  border: 1px solid #f0f0f0;
+  width: 200px;
+  position: fixed;
+  bottom:50%;
+  right:0px;
 
+}
+
+table{
+  width: 100%;
+  color: #f0f0f0;
+  border: 1px solid #f0f0f0;
+}
+
+th, td{
+  text-align: center;
 }
