@@ -26,11 +26,6 @@
   justify-content: center;
 }
 
-.logo {
-  font-size: 60px;
-  font-family: 'Comic Sans MS';
-}
-
 #navbar{
   text-align: right;
   height: 85px;
@@ -57,6 +52,7 @@
 
 #navbar li:first-child{
   padding-right: 450px;
+  font-size: 200%;
 }
 #navbar li{
   font-size: 20px;
