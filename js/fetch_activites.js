@@ -97,10 +97,8 @@ async function postBooking() {
     const test2 = await test;
     bookingObjsArray.push(test2)
   }
-
   booking1.bookingLines = bookingObjsArray
   //skal komme et andet sted fra, hard coded for nu
-  booking1.customer = {customerId: 1};
 
 
   const url = 'http://localhost:8080/api/booking/add'
@@ -110,7 +108,8 @@ async function postBooking() {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(booking1)
   };
-  const response = await fetch(url, fetchOptions);
+  const response = await fetch(url, fetchOptions).then(response => response.json());
+  localStorage["test"] = response.bookingId;
   if (!response) {
     const errorMessage = await response.text();
     throw new Error(errorMessage);

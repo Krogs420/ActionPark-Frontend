@@ -23,8 +23,11 @@ async function handleFormSubmit(event) {
 
   try {
     const formData = new FormData(form);
-    await postFormDataAsJson(url, formData);
-    location.href = 'confirmation.html';
+    const customer = await postFormDataAsJson(url, formData).then(response => response.json());
+    console.log(localStorage["test"]);
+    await getBooking(customer, localStorage["test"])
+    console.log(customer);
+    //location.href = 'confirmation.html';
   } catch (err) {
     alert(err.message);
     out(err);
@@ -48,5 +51,32 @@ async function postFormDataAsJson(url, formData) {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
   }
+  return response;
+}
+
+async function getBooking(customer, id){
+  const url = 'http://localhost:8080/api/booking/' + id;
+  const booking = await fetch(url).then(response => response.json());
+  booking.customer = customer;
+  await updateBooking(booking);
 
 }
+
+async function updateBooking(booking){
+  const url = 'http://localhost:8080/api/booking/update/' + booking.bookingId;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(booking)
+  };
+
+  const response = await fetch(url, fetchOptions)
+  if (!response) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+  return response;
+}
+
+
