@@ -24,8 +24,6 @@ async function createActivities() {
     activityh2.textContent = x.activityName;
     activityinfo.append(activityh2)
     /*
-
-
     activityinfo.append(activityh2);
     const activityNameTag = document.createTextNode(x);
     activityName.append(activityNameTag);
