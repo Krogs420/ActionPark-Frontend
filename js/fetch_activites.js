@@ -15,14 +15,12 @@ async function createActivities() {
   for (let x of activityList) {
     out(x)
     let parent = document.getElementById("parent")
-
     let activityName = document.createElement("div");
     activityName.classList.add("activity-box");
     parent.append(activityName)
     let activityinfo = document.createElement("div");
     activityName.append(activityinfo);
     let activityh2 = document.createElement("h2");
-
     activityh2.textContent = x.activityName;
     activityinfo.append(activityh2)
     /*
