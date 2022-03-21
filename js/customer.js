@@ -1,6 +1,5 @@
-const getCustomersUrl = 'http://localhost:8080/api/customer/all-customers';
 const postCustomerUrl = 'http://localhost:8080/api/customer/add';
-const getCustomerUrl = 'http://localhost:8080/api/customer/';
+
 
 const out = function (str) {
   console.log(str);
