@@ -19,6 +19,7 @@ async function createActivities() {
     activityName.classList.add("activity-box");
     parent.append(activityName)
     let activityinfo = document.createElement("div");
+    activityinfo.classList.add("activity-info")
     activityName.append(activityinfo);
     let activityh2 = document.createElement("h2");
     activityh2.textContent = x.activityName;
