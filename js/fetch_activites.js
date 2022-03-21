@@ -1,4 +1,7 @@
 const activities = 'http://localhost:8080/api/activity/all-activities';
+const button = document.getElementById("btn")
+const activityTable = document.getElementById("activityTable")
+const bookingTable = document.getElementById('bline-table')
 
 const out = function (str) {
   console.log(str)
@@ -41,9 +44,26 @@ async function createActivities() {
       const tidspunkt = document.createTextNode(times[i]);
       timeName.append(tidspunkt);
       timeTable.append(timeName);
+      timeName.addEventListener('click',  () => addBookinglineToBooking(x, times[i]))
     }
   }
 }
+
+function addBookinglineToBooking(activity, time){
+  const tableRow = document.createElement('tr');
+  const td1 = document.createElement('td')
+  td1.textContent = activity.activityName;
+  const td2 = document.createElement('td')
+  td2.textContent = time.toString();
+  const td3 = document.createElement('td')
+  td3.textContent = activity.activityPrice
+  tableRow.append(td1);
+  tableRow.append(td2);
+  tableRow.append(td3);
+  bookingTable.append(tableRow)
+  console.log('hej')
+}
+
 
 function addActivity(activity) {
   const rowCount = activityTable.rows.length;
@@ -66,7 +86,4 @@ function createActivityMap() {
   out("create table");
   activityMap.forEach(activity => createActivities(activity))
 }
-
-const button = document.getElementById("btn")
-const activityTable = document.getElementById("activityTable")
 
