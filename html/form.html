@@ -17,12 +17,12 @@
 <div class="container">
   <div id="content">
 
-    <form method="POST" action="confirmation.html">
+    <form method="POST" action="confirmation.html" id="new-customer-form">
 
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label for="fname">Fornavn</label>
-          <input type="text" class="form-control" id="fname" placeholder="Dit fornavn.." required>
+          <input type="text" class="form-control" name="customerFirstName" id="fname" placeholder="Dit fornavn.." required>
           <div class="invalid-feedback">
             Looks good!
           </div>
@@ -30,7 +30,7 @@
 
         <div class="col-md-4 mb-3">
           <label for="lname">Efternavn</label>
-          <input type="text" class="form-control" id="lname" placeholder="Dit efternavn.." required>
+          <input type="text" class="form-control" name="customerLastName" id="lname" placeholder="Dit efternavn.." required>
           <div class="valid-feedback">
             Looks good!
           </div>
@@ -38,7 +38,7 @@
 
         <div class="col-md-4 mb-3">
           <label for="mail">Mail</label>
-          <input type="text" class="form-control" id="mail" placeholder="Din mail.." required>
+          <input type="text" class="form-control" id="mail" name="customerMail" placeholder="Din mail.." required>
           <div class="valid-feedback">
             Looks good!
           </div>
@@ -46,7 +46,7 @@
 
         <div class="col-md-4 mb-3">
           <label for="pnum">Mobil</label>
-          <input type="text" class="form-control" id="pnum" placeholder="Mobil nummer.." required>
+          <input type="text" class="form-control" id="pnum" name="customerPhoneNum" placeholder="Mobil nummer.." required>
           <div class="valid-feedback">
             Looks good!
           </div>
@@ -54,15 +54,15 @@
 
         <div class="col-md-4 mb-3">
           <label for="cvr">Hvis du booker som firma, indtast CVR nr her:</label>
-          <input type="text" class="form-control" id="cvr" placeholder="CVR nr...">
+          <input type="text" class="form-control" id="cvr" name="customerCvrNumber" placeholder="CVR nr...">
           <div class="valid-feedback">
             Looks good!
           </div>
         </div>
 
         <div class="col-md-4 mb-3">
-          <label for="koment">Komentar</label>
-          <textarea id="koment" name="koment" placeholder="Skriv en kommentar.." style="height:200px"></textarea>
+          <label for="comment">Komentar</label>
+          <textarea id="comment" name="customerComment" placeholder="Skriv en kommentar.." style="height:200px"></textarea>
           <div class="valid-feedback">
             Looks good!
           </div>
@@ -70,7 +70,7 @@
       </div>
 
         <a href="confirmation.html">
-          <button class="btn btn-primary">Submit</button>
+          <button id="sub-button" class="btn btn-primary">Submit</button>
         </a>
 
       </form>
@@ -80,6 +80,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="../js/js.js"></script>
+<script src="../js/customer.js"></script>
 <script src="../bootstrap-5.1.3-dist/js/bootstrap.js"></script>
 </body>
 </html>
