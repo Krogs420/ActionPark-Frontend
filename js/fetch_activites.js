@@ -6,11 +6,14 @@ const out = function (str) {
 }
 const activityMap = new Map;
 
+createTimeTableFromMap()
+
 function fetchActivites() {
- fetch(activities).then(response => response.json());
+ return fetch(activities).then(response => response.json());
 
 }
 fetchActivites()
+createActivities()
 async function createActivities() {
   const activityList = await fetchActivites();
   activityList.forEach((activity, index) => {
@@ -18,7 +21,6 @@ async function createActivities() {
     document.createElement('li',activityMap[index])
     out("does it work?")
   })
-  out(activityMap)
 }
 
 function createTimeTableFromMap() {
@@ -27,5 +29,26 @@ function createTimeTableFromMap() {
   }
 }
 
-createActivities()
-createTimeTableFromMap()
+function addActivity(activity){
+  const rowCount = activityTable.rows.length;
+  let row = activityTable.insertRow(rowCount);
+  let colCount = 0;
+
+//Sætter Aktivitets
+  let cell =  row.insertCell(colCount++);
+  cell.innerText = activity.activityId;
+
+  //Billede til aktivitet
+  cell = row.insertCell(colCount++);
+  const imgTag = document.createElement('img')
+  imgTag.setAttribute("src",activity.img )
+  imgTag.innerText = activity.name;
+  cell.appendChild(imgTag);
+
+}
+
+addActivity()
+
+
+const activityTable = document.getElementById("document_date")
+activityTable.addEventListener('click', createTimeTableFromMap)
