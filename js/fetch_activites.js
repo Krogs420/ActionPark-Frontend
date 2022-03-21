@@ -116,10 +116,6 @@ async function postBooking() {
   }
 }
 
-function getActivityList() {
-
-}
-
 bookingBttn.addEventListener('click', postBooking)
 
 
@@ -146,8 +142,3 @@ async function postBookingLine(activity) {
   }
   return response;
 }
-
-function getActivityList() {
-
-}
-
