@@ -9,11 +9,10 @@
   <link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="../js/fetch_activites.js"></script>
+
 
 </head>
 <body>
@@ -26,8 +25,21 @@
   <!--Taget fra https://javascript.tutorialink.com/icon-clicking-to-show-the-date/ -->
   <!-- Øverste knapper på siden-->
 
+<div id="parent"></div>
+  <table id="activityTable">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>pic</th>
+      <th>times</th>
+    </tr>
+    </thead>
+    <tr></tr>
+  </table>
+<!--
+
   <div id="booking-box">
-    <!--  <button id="pbCreateTimeTable">Vælg Dag</button> -->
+    &lt;!&ndash;  <button id="pbCreateTimeTable">Vælg Dag</button> &ndash;&gt;
     <div class="col-lg-12" style="margin-top:10px;">
       <label class="form-group control-label col-lg-2">vælg en dag *</label>
       <div class="input-group col-lg-6">
@@ -37,25 +49,25 @@
       </div>
     </div>
   </div>
-  <!-- Øverste knapper på siden-->
+  &lt;!&ndash; Øverste knapper på siden&ndash;&gt;
   <button id="btn">Button</button>
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
   <div class="activity-box">
     <div class="activity-info">
       <h2>Paintball</h2>
       <div class="image-poster">
         <img src="../images/Paintball2.jpg"/></div>
     </div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
     <table id="timetable">
       <th>Time</th>
     </table>
   </div>
-  <!--Tider her -->
+  &lt;!&ndash;Tider her &ndash;&gt;
 
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
 
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
   <div class="activity-box">
     <div class="activity-info">
       <h2>Go-kart</h2>
@@ -64,34 +76,34 @@
       </div>
     </div>
   </div>
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
 
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
   <div class="activity-box">
     <div class="activity-info">
       <h2>Sumo</h2>
       <div class="image-poster">
         <img src="../images/Sumo-Wrestling_Players3_960x720.jpg" height="720" width="960"/></div>
     </div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
     <div class="times"></div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
   </div>
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
 
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
   <div class="activity-box">
     <div class="activity-info">
       <h2>Mini Golf</h2>
       <div class="image-poster"><img src="../images/unnamed.png" height="512" width="512"/></div>
     </div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
     <div class="times"></div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
   </div>
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
 
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
   <div class="activity-box">
     <div class="activity-info">
       <h2>Bumper Ball</h2>
@@ -99,19 +111,17 @@
         <img src="../images/1522811_249040721886379_5028558434686202985_o.jpg" height="1366" idth="2048"/>
       </div>
     </div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
     <div class="times"></div>
-    <!--Tider her -->
+    &lt;!&ndash;Tider her &ndash;&gt;
   </div>
-  <!-- Aktivitets Boksene og tider-->
+  &lt;!&ndash; Aktivitets Boksene og tider&ndash;&gt;
+-->
 
   <button id="book" class="btn btn-primary"><a href="form.html">Book Valgte</a></button>
 
 </div>
-</div>
-
-
-<div>test</div>
+<script src="../js/fetch_activites.js"></script>
 <script src="../js/js.js"></script>
 <script src="../js/booking.js"></script>
 

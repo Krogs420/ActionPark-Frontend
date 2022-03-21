@@ -33,8 +33,6 @@ const pbCreateTimeTable = document.getElementById("document_date");
 const timeTable = document.getElementById("timetable")
 
 
-pbCreateTimeTable.addEventListener('click', createTimeRows)
-
 
 
 
