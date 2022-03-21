@@ -42,16 +42,6 @@ async function createActivities() {
       timeName.append(tidspunkt);
       timeTable.append(timeName);
     }
-
-
-    /*
-    activityinfo.append(activityh2);
-    const activityNameTag = document.createTextNode(x);
-    activityName.append(activityNameTag);
-    activityName.addEventListener('click', clickButton)
-    timeTable.append(activityName);
-*/
-
   }
 }
 
