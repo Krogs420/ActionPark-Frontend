@@ -1,14 +1,16 @@
-const activities = 'http://localhost:8080/getActivities';
+
+const activities = 'http://localhost:8080/api/activity/all-activities';
+
 const out = function (str) {
   console.log(str)
 }
 const activityMap = new Map;
 
 function fetchActivites() {
-  return fetch(activities).then(response => response.json())
+ fetch(activities).then(response => response.json());
 
 }
-
+fetchActivites()
 async function createActivities() {
   const activityList = await fetchActivites();
   activityList.forEach((activity, index) => {

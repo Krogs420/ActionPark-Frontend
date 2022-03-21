@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 
 
-function addRow() {
+function createTimeRows() {
   for (let x of times) {
     let timeName = document.createElement("button");
     timeName.classList.add("time-button");
@@ -33,7 +33,7 @@ const pbCreateTimeTable = document.getElementById("document_date");
 const timeTable = document.getElementById("timetable")
 
 
-pbCreateTimeTable.addEventListener('click', addRow)
+pbCreateTimeTable.addEventListener('click', createTimeRows)
 
 
 
