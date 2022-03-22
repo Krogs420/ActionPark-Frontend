@@ -8,29 +8,9 @@ $(document).ready(function () {
   });
 });
 
-
-/*
-function createTimeRows() {
-  for (let x of times) {
-    let timeName = document.createElement("button");
-    timeName.classList.add("time-button");
-    const tidspunkt = document.createTextNode(x);
-    timeName.append(tidspunkt);
-
-   timeName.addEventListener('click', clickButton);
-   out(x);
-    timeTable.append(timeName);
-
-
-  }
-}
-
- */
-
 async function clickButton() {
   out("button should be red")
   return document.getElementsByClassName('time-button').backgroundColor = "white";
-
 }
 
 const pbCreateTimeTable = document.getElementById("btn2");

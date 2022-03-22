@@ -1,6 +1,5 @@
-const getCustomersUrl = 'http://localhost:8080/api/customer/all-customers';
 const postCustomerUrl = 'http://localhost:8080/api/customer/add';
-const getCustomerUrl = 'http://localhost:8080/api/customer/';
+
 
 const out = function (str) {
   console.log(str);
@@ -23,13 +22,14 @@ async function handleFormSubmit(event) {
 
   try {
     const formData = new FormData(form);
-    await postFormDataAsJson(url, formData);
+    const customer = await postFormDataAsJson(url, formData).then(response => response.json());
+    await getBooking(customer, localStorage["booking-id"])
+    localStorage.clear();
     location.href = 'confirmation.html';
   } catch (err) {
     alert(err.message);
     out(err);
   }
-  event.stopPropagation();
 }
 
 
@@ -49,4 +49,32 @@ async function postFormDataAsJson(url, formData) {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
   }
+  return response;
 }
+
+async function getBooking(customer, id){
+  const url = 'http://localhost:8080/api/booking/' + id;
+  const booking = await fetch(url).then(response => response.json());
+  booking.customer = customer;
+  await updateBooking(booking);
+
+}
+
+async function updateBooking(booking){
+  const url = 'http://localhost:8080/api/booking/update/' + booking.bookingId;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(booking)
+  };
+
+  const response = await fetch(url, fetchOptions)
+  if (!response) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+  return response;
+}
+
+
