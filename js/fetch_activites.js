@@ -46,7 +46,8 @@ async function createActivities() {
       timeTable.append(timeName);
       timeName.addEventListener('click', () => {
         addBookinglineToBooking(x, times[i])
-        bookingLineArray.push(x)
+        x.activityTime = times[i];
+        bookingLineArray.push(x);
       })
     }
   }
@@ -117,7 +118,6 @@ async function postBooking() {
 
 bookingBttn.addEventListener('click', async () => {
   await postBooking();
-  location.href = "form.html";
 
 })
 
@@ -133,6 +133,7 @@ async function postBookingLine(activity) {
   const booklingline = {}
   booklingline.activity = activity;
 
+  console.log(activity)
   const fetchOptions = {
     method: "POST",
     headers: {"Content-Type": "application/json"},
