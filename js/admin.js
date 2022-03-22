@@ -23,16 +23,14 @@ function fetchBooking() {
 
 async function addTableOverview() {
   const bookingList = await fetchBooking();
+  const activityList = await fetchActivities();
 
   for (let x of bookingList) {
     const tableRow = document.createElement('tr');
     const td1 = document.createElement('td');
     td1.textContent = x.bookingId;
-
-    const td2 = document.createElement('td')
-    td2.textContent = x.totalPrice
     tableRow.append(td1);
-    tableRow.append(td2);
+    const td2 = document.createElement('td')
     bookingOverview.append(tableRow)
     console.log("fgedgdfg");
   }
