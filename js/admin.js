@@ -22,28 +22,14 @@ function fetchBooking() {
 }
 
 async function addTableOverview() {
-  const bookings = await fetchBooking();
-  const activity = await fetchActivities();
-  const customer = await fetchCustomer();
-  const bookingline = await fetchBookingLine();
+  const bookingList = await fetchBooking();
 
-  for (let x of bookings) {
+  for (let x of bookingList) {
     const tableRow = document.createElement('tr');
     const td1 = document.createElement('td');
-    td1.textContent = x.activityName;
-    const td2 = document.createElement('td');
-    td2.textContent = activity.toString();
-    const td3 = document.createElement('td');
-    td3.textContent = customer.customerPhoneNum;
-    const td4 = document.createElement('td');
-    td4.textContent = booking.bookingId;
-    const td5 = document.createElement('td');
-    td5.textContent = bookingline.activityInstructor;
+    td1.textContent = x.bookingId;
     tableRow.append(td1);
-    tableRow.append(td2);
-    tableRow.append(td3);
-    tableRow.append(td4);
-    tableRow.append(td5);
+    const td2 = document.createElement('td')
     bookingOverview.append(tableRow)
     console.log("fgedgdfg");
   }
