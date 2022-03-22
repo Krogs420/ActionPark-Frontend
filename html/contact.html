@@ -45,28 +45,21 @@
 
   <!-- SECOND ROW -->
   <div class="row">
-    <div class="column">
+    <div class="container">
+      <form action="/action_page.php">
+        <label for="fname" style="color: white">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
-      <!-- column til højre -->
-      <h2>Kontakt information</h2>
+        <label for="lname" style="color: white">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-      <p>Telefon: 9999999999</p><br>
-      <p>eller skriv til os ved at udfylde formen herunder:</p> <br>
+        <label for="subject" style="color: white">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-      <form action="" class="form-group">
-        <div class="form-group">
-          <label for="exampleFormControlInput1"></label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
-        <button class="btn-primary">Send</button>
+        <input type="submit" value="Submit">
       </form>
-
     </div>
+
     <div class="column">
       <!-- column til venstre -->
       <div class="map-responsive">
