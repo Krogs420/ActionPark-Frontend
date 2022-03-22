@@ -28,8 +28,11 @@ async function addTableOverview() {
     const tableRow = document.createElement('tr');
     const td1 = document.createElement('td');
     td1.textContent = x.bookingId;
-    tableRow.append(td1);
+
     const td2 = document.createElement('td')
+    td2.textContent = x.totalPrice
+    tableRow.append(td1);
+    tableRow.append(td2);
     bookingOverview.append(tableRow)
     console.log("fgedgdfg");
   }
