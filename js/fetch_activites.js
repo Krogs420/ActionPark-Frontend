@@ -118,7 +118,7 @@ async function postBooking() {
 
 bookingBttn.addEventListener('click', async () => {
   await postBooking();
-
+  location.href = 'form.html'
 })
 
 
@@ -133,7 +133,9 @@ async function postBookingLine(activity) {
   const booklingline = {}
   booklingline.activity = activity;
 
-  console.log(activity)
+  booklingline.activityTime = activity.activityTime
+
+  console.log(JSON.stringify(booklingline))
   const fetchOptions = {
     method: "POST",
     headers: {"Content-Type": "application/json"},
