@@ -48,6 +48,13 @@ button {
 
  */
 
+.video-container {
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  top: 0;
+}
+
 /* video styles */
 video {
   width: 100%;
