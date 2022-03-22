@@ -1,8 +1,7 @@
 const activities = 'http://localhost:8080/api/activity/all-activities';
-const button = document.getElementById("btn")
 const activityTable = document.getElementById("activityTable")
 const bookingTable = document.getElementById('bline-table')
-const bookingBttn = document.getElementById('book2')
+const bookingBttn = document.getElementById('book-button')
 const bookingLineArray = [];
 const out = function (str) {
   console.log(str)
@@ -93,13 +92,13 @@ async function postBooking() {
   }
 
   for (let activity of bookingLineArray) {
-    const test =  await postBookingLine(activity).then(response => response.json())
+    const test = await postBookingLine(activity).then(response => response.json())
     const test2 = await test;
     bookingObjsArray.push(test2)
   }
   booking1.bookingLines = bookingObjsArray
-  //skal komme et andet sted fra, hard coded for nu
 
+  //booking1.creationDate = document.getElementById('document_date').value;
 
   const url = 'http://localhost:8080/api/booking/add'
 
@@ -116,7 +115,11 @@ async function postBooking() {
   }
 }
 
-bookingBttn.addEventListener('click', postBooking)
+bookingBttn.addEventListener('click', async () => {
+  await postBooking();
+  location.href = "form.html";
+
+})
 
 
 function createActivityMap() {
