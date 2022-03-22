@@ -5,8 +5,29 @@ const customer = 'http://localhost:8080/api/customer/all-customers';
 const booking = 'http://localhost:8080/api/booking/all-bookings';
 const bookingOverview = document.getElementById('bview-table')
 
-function addTableOverview(activity, customer, booking, bookingline) {
-  for (let i = 0; i < booking.getAllBooking.length; i++) {
+function fetchActivities() {
+  return fetch(activities).then(response => response.json());
+}
+
+function fetchCustomer() {
+  return fetch(customer).then(response => response.json());
+}
+
+function fetchBookingLine() {
+  return fetch(bookingLine).then(response => response.json());
+}
+
+function fetchBooking() {
+  return fetch(booking).then(response => response.json());
+}
+
+async function addTableOverview() {
+  const bookings = await fetchBooking();
+  const activity = await fetchActivities();
+  const customer = await fetchCustomer();
+  const bookingline = await fetchBookingLine();
+
+  for (let x of bookings) {
     const tableRow = document.createElement('tr');
     const td1 = document.createElement('td');
     td1.textContent = activity.activityName;
