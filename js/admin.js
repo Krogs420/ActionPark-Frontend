@@ -26,19 +26,22 @@ async function addTableOverview() {
   const activity = await fetchActivities();
   const customer = await fetchCustomer();
   const bookingline = await fetchBookingLine();
+  console.log(bookings)
 
-  for (let x of bookings) {
-    const tableRow = document.createElement('tr');
+  for (let booking of bookings) {
+    for (let i = 0; i<booking.bookingLines.length; i++) {
+
     const td1 = document.createElement('td');
-    td1.textContent = x.activityName;
+    td1.textContent = booking.bookingId;
+    const tableRow = document.createElement('tr');
     const td2 = document.createElement('td');
-    td2.textContent = activity.toString();
+    td2.textContent = booking.bookingLines[i].activity.activityName;
     const td3 = document.createElement('td');
-    td3.textContent = customer.customerPhoneNum;
+    td3.textContent = booking.bookingLines[i].activityTime;
     const td4 = document.createElement('td');
-    td4.textContent = booking.bookingId;
+    td4.textContent = booking.customer.customerPhoneNum;
     const td5 = document.createElement('td');
-    td5.textContent = bookingline.activityInstructor;
+    td5.textContent = booking.bookingLines[i].activityInstructor;
     tableRow.append(td1);
     tableRow.append(td2);
     tableRow.append(td3);
@@ -46,6 +49,7 @@ async function addTableOverview() {
     tableRow.append(td5);
     bookingOverview.append(tableRow)
     console.log("fgedgdfg");
+    }
   }
 
 }

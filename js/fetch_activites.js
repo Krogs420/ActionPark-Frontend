@@ -99,7 +99,13 @@ async function postBooking() {
   }
   booking1.bookingLines = bookingObjsArray
 
-  //booking1.creationDate = document.getElementById('document_date').value;
+  const rando = document.getElementById('document_date').value;
+  console.log(rando);
+  const rando2 = new Date(rando);
+  console.log(rando2);
+  const rando3 = rando2.toLocaleDateString('en-CA');
+  console.log(rando3);
+  booking1.bookingDate = rando3;
 
   const url = 'http://localhost:8080/api/booking/add'
 
@@ -148,3 +154,5 @@ async function postBookingLine(activity) {
   }
   return response;
 }
+
+
