@@ -30,6 +30,7 @@ h2 {
 
 .row {
   display: flex;
+  margin: 20px;
 }
 
 /* Clear floats after the columns */

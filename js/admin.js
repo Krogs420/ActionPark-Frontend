@@ -54,5 +54,7 @@ async function addTableOverview() {
 
 }
 
+
 addTableOverview(activities, customer, booking, bookingLine);
+
 
