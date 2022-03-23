@@ -16,25 +16,25 @@ function fetchActivities() {
 
 async function createActivities() {
   const activityList = await fetchActivities();
-  for (let x of activityList) {
-    out(x)
+  for (let activity of activityList) {
+    out(activity)
     let parent = document.getElementById("parent")
     let activityName = document.createElement("div");
     activityName.classList.add("activity-box");
-    activityName.setAttribute('id', x.activityId)
+    activityName.setAttribute('id', activity.activityId)
     parent.append(activityName)
     let activityinfo = document.createElement("div");
     activityinfo.classList.add("activity-info")
     activityName.append(activityinfo);
     let activityh2 = document.createElement("h2");
-    activityh2.textContent = x.activityName;
+    activityh2.textContent = activity.activityName;
     activityinfo.append(activityh2)
     let activityImgPoster = document.createElement("div");
     activityinfo.append(activityImgPoster);
     activityImgPoster.classList.add("image-poster");
     let activityImage = document.createElement("img");
     activityImgPoster.append(activityImage);
-    activityImage.src = x.activityImageHref;
+    activityImage.src = activity.activityImageHref;
 
     let timeTable = document.createElement("div");
     activityName.append(timeTable);
@@ -50,6 +50,7 @@ async function createActivities() {
         x.activityTime = times[i];
         bookingLineArray.push(x);
         bookingTotal();
+
       })
     }
   }
@@ -112,7 +113,13 @@ async function postBooking() {
   }
   booking1.bookingLines = bookingObjsArray
 
-  //booking1.creationDate = document.getElementById('document_date').value;
+  const bookingDate = document.getElementById('document_date').value;
+  console.log(bookingDate);
+  const bookingDate2 = new Date(bookingDate);
+  console.log(bookingDate2);
+  const bookingDate3 = bookingDate2.toLocaleDateString('en-CA');
+  console.log(bookingDate3);
+  booking1.bookingDate = bookingDate3;
 
   const url = 'http://localhost:8080/api/booking/add'
 
@@ -161,3 +168,5 @@ async function postBookingLine(activity) {
   }
   return response;
 }
+
+
