@@ -46,9 +46,9 @@ async function createActivities() {
       timeName.append(tidspunkt);
       timeTable.append(timeName);
       timeName.addEventListener('click', () => {
-        addBookinglineToBooking(x, times[i])
-        x.activityTime = times[i];
-        bookingLineArray.push(x);
+        addBookinglineToBooking(activity, times[i])
+        activity.activityTime = times[i];
+        bookingLineArray.push(activity);
         bookingTotal();
 
       })
