@@ -38,6 +38,7 @@ async function createInstructorMap() {
 
 async function addTableOverview() {
   const bookings = await fetchBooking();
+  const  instructors = await fetchInstructor();
  /* const activity = await fetchActivities();
   const customer = await fetchCustomer();
   const bookingline = await fetchBookingLine();
@@ -60,12 +61,14 @@ async function addTableOverview() {
     const td5 = document.createElement('select');
     td5.textContent = booking.bookingLines[i].activityInstructor;
       let ix = 0;
-      instructorMap.forEach(instructor => {
-console.log("hej :)" + instructor.name)
+     /* instructorMap.forEach(instructor => {
 
-    /*for (let instructor of instructors) {
 
-     */
+      */
+
+    for (let instructor of instructors) {
+      console.log("hej :)" + instructor.name)
+
       const el = document.createElement("option");
       el.textContent = instructor.instructorName;
       td5.appendChild(el);
@@ -76,9 +79,11 @@ console.log("hej :)" + instructor.name)
       td5.addEventListener("change", (event) => {
         const selectedIx = td5.selectedIndex;
         const opt = td5.options[selectedIx];
-        instructor.instructor = instructor.get(opt.value);
+        /*instructor.instructor = instructor.get(opt.value);
+
+         */
       })
-    });
+    };
 
     tableRow.append(td1);
     tableRow.append(td2);
@@ -91,6 +96,32 @@ console.log("hej :)" + instructor.name)
   }
 
 }
+
+async function restUpdateInstructor(instructor) {
+  const url = "http://localhost:8080/update/" + instructor.instructorId;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: ""
+  }
+
+  const jsonString = JSON.stringify(instructor);
+  fetchOptions.body = jsonString;
+
+  //calls backend and wait for return
+  const response = await fetch(url, fetchOptions);
+
+  out(response);
+  if (!response.ok) {
+    out("Det gik ikke godt med update");
+  };
+
+  return response;
+}
+
 /*
 
  let cell = row.insertCell(colCount++);
