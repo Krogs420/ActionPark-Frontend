@@ -147,10 +147,11 @@ color: white;
 
 .bline-div{
   border: 1px solid #f0f0f0;
-  width: 200px;
+  width: 300px;
   position: fixed;
   bottom:50%;
   right:0px;
+  margin-right: 50px;
 
 }
 
