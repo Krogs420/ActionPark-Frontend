@@ -2,10 +2,11 @@ const activities = 'http://localhost:8080/api/activity/all-activities';
 const activityTable = document.getElementById("activityTable")
 const bookingTable = document.getElementById('bline-table')
 const bookingBttn = document.getElementById('book-button')
-const bookingLineArray = [];
+const bookingLineArray = []
 const out = function (str) {
   console.log(str)
 }
+out(bookingLineArray)
 const activityMap = new Map;
 createActivities()
 
@@ -48,6 +49,7 @@ async function createActivities() {
         addBookinglineToBooking(x, times[i])
         x.activityTime = times[i];
         bookingLineArray.push(x);
+        bookingTotal();
       })
     }
   }
@@ -65,6 +67,17 @@ function addBookinglineToBooking(activity, time) {
   tableRow.append(td2);
   tableRow.append(td3);
   bookingTable.append(tableRow)
+
+
+}
+
+function bookingTotal() {
+  const totalCell = document.getElementById('total');
+  let sum = 0;
+  for (bookingLine of bookingLineArray) {
+    sum += bookingLine.activityPrice;
+  }
+  totalCell.textContent = sum;
 }
 
 function addActivity(activity) {
