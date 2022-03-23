@@ -3,8 +3,10 @@ const activities = 'http://localhost:8080/api/activity/all-activities';
 const bookingLine = 'http://localhost:8080/api/booking-line/all-booking-lines';
 const customer = 'http://localhost:8080/api/customer/all-customers';
 const booking = 'http://localhost:8080/api/booking/all-bookings';
+const bookingByDate = 'http://localhost:8080/api/booking/bookingdate/';
 const instructor = 'http://localhost:8080/api/instructor/all-instructors';
 const bookingOverview = document.getElementById('bview-table')
+const searchBtn = document.getElementById('search-button')
 
 function fetchActivities() {
   return fetch(activities).then(response => response.json());
@@ -21,6 +23,10 @@ function fetchBookingLine() {
 function fetchBooking() {
   return fetch(booking).then(response => response.json());
 }
+
+
+function fetchBookingByDate(date) {
+  return fetch(bookingByDate + date).then(response => response.json());
 
 function fetchInstructor() {
   return fetch(instructor).then(response => response.json());
@@ -151,7 +157,14 @@ cell.appendChild(ddRegion);
  */
 
 
-
 addTableOverview(activities, customer, booking, bookingLine);
 
+async function getByDate() {
+  const bookingDate = document.getElementById('document_date').value;
+  const bookingDate2 = new Date(bookingDate);
+  const bookingDate3 = bookingDate2.toLocaleDateString('en-CA');
+  const bookings = await fetchBookingByDate(bookingDate3);
+  console.log(bookings);
+}
 
+searchBtn.addEventListener('click', getByDate);
