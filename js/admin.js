@@ -4,6 +4,7 @@ const customer = 'http://localhost:8080/api/customer/all-customers';
 const bookingList = 'http://localhost:8080/api/booking/all-bookings';
 const bookingById = 'http://localhost:8080/api/booking/';
 const bookingByDate = 'http://localhost:8080/api/booking/bookingdate/';
+const bookingByPhone = 'http://localhost:8080/api/booking/customer-phone/';
 const instructor = 'http://localhost:8080/api/instructor/all-instructors';
 const bookingOverview = document.getElementById('bview-table')
 const searchBtnDate = document.getElementById('search-button-date')
@@ -33,6 +34,10 @@ function fetchBookingByDate(date) {
 
 function fetchBookingById(id) {
   return fetch(bookingById + id).then(response => response.json());
+}
+
+function fetchBookingByPhoneNum(phoneNum) {
+  return fetch(bookingByPhone + phoneNum).then(response => response.json());
 }
 
 function fetchInstructor() {
@@ -247,6 +252,7 @@ async function getById() {
   const tbody = document.getElementById('tbodyadmin')
   tbody.innerHTML = ""
 
+
   for (let i = 0; i < booking.bookingLines.length; i++) {
     const td1 = document.createElement('td');
     td1.textContent = booking.bookingId;
@@ -280,6 +286,7 @@ async function getById() {
       })
     }
 
+
     tableRow.append(td1);
     tableRow.append(td2);
     tableRow.append(td3);
@@ -292,7 +299,72 @@ async function getById() {
 
 }
 
+async function getByPhoneNum() {
+  console.log("Fisken er stor3");
+  const phoneNum = searchInputField.value;
+
+  const bookings = await fetchBookingByPhoneNum(phoneNum);
+  const instructors = await fetchInstructor();
+
+  console.log(phoneNum);
+
+  const tbody = document.getElementById('tbodyadmin')
+  tbody.innerHTML = ""
+
+  for (let booking of bookings) {
+    for (let i = 0; i < booking.bookingLines.length; i++) {
+
+      const td1 = document.createElement('td');
+      td1.textContent = booking.bookingId;
+      const tableRow = document.createElement('tr');
+      const td2 = document.createElement('td');
+      td2.textContent = booking.bookingLines[i].activity.activityName;
+      const td3 = document.createElement('td');
+      td3.textContent = booking.bookingLines[i].activityTime;
+      const td4 = document.createElement('td');
+      td4.textContent = booking.customer.customerPhoneNum;
+      const td5 = document.createElement('select');
+      td5.textContent = booking.bookingLines[i].activityInstructor;
+      let ix = 0;
+
+      for (let instructor of instructors) {
+        console.log("hej :)" + instructor.name)
+
+        const el = document.createElement("option");
+        el.textContent = instructor.instructorName;
+        td5.appendChild(el);
+        if (instructor.instructorName === instructor.instructorName) {
+          td5.selectedIndex = ix;
+        }
+        ix++;
+        td5.addEventListener("change", (event) => {
+          const selectedIx = td5.selectedIndex;
+          const opt = td5.options[selectedIx];
+          /*instructor.instructor = instructor.get(opt.value);
+
+           */
+        })
+      }
+
+      tableRow.append(td1);
+      tableRow.append(td2);
+      tableRow.append(td3);
+      tableRow.append(td4);
+      tableRow.append(td5);
+      tbody.append(tableRow)
+      bookingOverview.append(tbody)
+      console.log("fgedgdfg");
+    }
+  }
+
+}
+
+
 searchBtnDate.addEventListener('click', getByDate);
-searchBtnInput.addEventListener('click', getById);
+searchBtnInput.addEventListener('click', ()=>{
+
+    getById().catch(() => getByPhoneNum())
+
+})
 
 
