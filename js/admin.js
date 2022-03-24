@@ -55,7 +55,6 @@ async function createInstructorMap() {
   out("show allinstructors");
   const incstructorList = await fetchInstructor();
   instructorList.forEach((instructor, index) => {
-    console.log(instructor.name + "ix=" + index);
     instructorMap.set(instructor.name, instructor);
   })
 }
@@ -68,7 +67,6 @@ async function addTableOverview() {
    const bookingline = await fetchBookingLine();
 
    */
-  console.log(bookings)
 
   const tbody = document.createElement('tbody')
   tbody.setAttribute('id', 'tbodyadmin')
@@ -94,8 +92,6 @@ async function addTableOverview() {
        */
 
       for (let instructor of instructors) {
-        console.log("hej :)" + instructor.name)
-
         const el = document.createElement("option");
         el.textContent = instructor.instructorName;
         td5.appendChild(el);
@@ -120,7 +116,6 @@ async function addTableOverview() {
       tableRow.append(td5);
       tbody.append(tableRow);
       bookingOverview.append(tbody)
-      console.log("fgedgdfg");
     }
   }
 
@@ -181,17 +176,11 @@ cell.appendChild(ddRegion);
  */
 
 async function getByDate() {
-  console.log("Fisken er stor");
   const bookingDate = document.getElementById('document_date').value;
   const bookingDate2 = new Date(bookingDate);
   const bookingDate3 = bookingDate2.toLocaleDateString('en-CA');
   const bookings = await fetchBookingByDate(bookingDate3);
   const instructors = await fetchInstructor();
-
-  console.log(bookings);
-
-  const table = document.getElementById('bview-table')
-
   const tbody = document.getElementById('tbodyadmin')
   tbody.innerHTML = ""
 
@@ -212,8 +201,6 @@ async function getByDate() {
       let ix = 0;
 
       for (let instructor of instructors) {
-        console.log("hej :)" + instructor.name)
-
         const el = document.createElement("option");
         el.textContent = instructor.instructorName;
         td5.appendChild(el);
@@ -237,20 +224,14 @@ async function getByDate() {
       tableRow.append(td5);
       tbody.append(tableRow)
       bookingOverview.append(tbody)
-      console.log("fgedgdfg");
     }
   }
 }
 
 async function getById() {
-  console.log("Fisken er stor2");
   const id = searchInputField.value;
-
   const booking = await fetchBookingById(id);
   const instructors = await fetchInstructor();
-
-  console.log(id);
-
   const tbody = document.getElementById('tbodyadmin')
   tbody.innerHTML = ""
 
@@ -270,8 +251,6 @@ async function getById() {
     let ix = 0;
 
     for (let instructor of instructors) {
-      console.log("hej :)" + instructor.name)
-
       const el = document.createElement("option");
       el.textContent = instructor.instructorName;
       td5.appendChild(el);
@@ -296,26 +275,19 @@ async function getById() {
     tableRow.append(td5);
     tbody.append(tableRow)
     bookingOverview.append(tbody)
-    console.log("fgedgdfg");
   }
 
 }
 
 async function getByPhoneNum() {
-  console.log("Fisken er stor3");
   const phoneNum = searchInputField.value;
-
   const bookings = await fetchBookingByPhoneNum(phoneNum);
   const instructors = await fetchInstructor();
-
-  console.log(phoneNum);
-
   const tbody = document.getElementById('tbodyadmin')
   tbody.innerHTML = ""
 
   for (let booking of bookings) {
     for (let i = 0; i < booking.bookingLines.length; i++) {
-
       const td1 = document.createElement('td');
       td1.textContent = booking.bookingId;
       const tableRow = document.createElement('tr');
@@ -330,8 +302,6 @@ async function getByPhoneNum() {
       let ix = 0;
 
       for (let instructor of instructors) {
-        console.log("hej :)" + instructor.name)
-
         const el = document.createElement("option");
         el.textContent = instructor.instructorName;
         td5.appendChild(el);
@@ -355,7 +325,6 @@ async function getByPhoneNum() {
       tableRow.append(td5);
       tbody.append(tableRow)
       bookingOverview.append(tbody)
-      console.log("fgedgdfg");
     }
   }
 
@@ -364,9 +333,7 @@ async function getByPhoneNum() {
 
 searchBtnDate.addEventListener('click', getByDate);
 searchBtnInput.addEventListener('click', ()=>{
-
     getById().catch(() => getByPhoneNum())
-
 })
 
 
