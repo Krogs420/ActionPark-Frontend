@@ -119,6 +119,8 @@ tr:nth-child(odd) {
   display: inline-block;
   border-radius: 8px;
   margin: auto;
+  background-color: #04AA6D;
+  opacity: 0.5;
 }
 /*
 .time-button:active{

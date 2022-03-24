@@ -6,7 +6,7 @@ const bookingTable = document.getElementById('bline-table')
 const bookingBttn = document.getElementById('book-button')
 const timeTable = document.getElementById("timetable")
 const documentDate = document.getElementById('document_date');
-const activityArray = []
+let activityArray = []
 
 documentDate.value = new Date(Date.now()).toLocaleDateString("en-CA");
 documentDate.addEventListener("input",  createActivities);
@@ -22,8 +22,10 @@ function fetchActivities() {
 }
 
 async function createActivities() {
-
-  const activityList = await fetchActivities();
+  bookingTable.innerHTML ="";
+  activityArray=[];
+  document.getElementById("total").textContent = 0;
+  let activityList = await fetchActivities();
   let parent = document.getElementById("parent")
   parent.innerHTML = "";
   const getBookingDate = documentDate.value;
