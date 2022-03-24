@@ -66,7 +66,7 @@ function addBookinglineToBooking(activity, time) {
   td3.textContent = activity.activityPrice
   const deleteButton = document.createElement('button')
   deleteButton.classList.add()
-  deleteButton.addEventListener()
+  deleteButton.addEventListener('click',deleteBookingLine())
   deleteButton.textContent = "delete"
   tableRow.append(td1);
   tableRow.append(td2);
@@ -131,6 +131,18 @@ bookingBttn.addEventListener('click', async () => {
 
 
 async function deleteBookingLine(){
+
+  const deleteURL ="http:localhost:8080/api/delete/{id}"
+
+  const fetchoptions =   {method: "DELETE",
+    headers: {"Content-Type": "application/json"},
+  body: JSON.stringify(booking1)
+
+};
+
+  const response = await fetch(deleteURL, fetchoptions)
+
+  return response
 
 }
 
