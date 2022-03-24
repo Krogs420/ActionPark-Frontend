@@ -11,6 +11,11 @@ const searchBtnDate = document.getElementById('search-button-date')
 const searchInputField = document.getElementById('text-input-search');
 const searchBtnInput = document.getElementById('search-button-input');
 
+
+addTableOverview(activities, customer, bookingList, bookingLine)
+  .catch(err => console.error(err));
+
+
 function fetchActivities() {
   return fetch(activities).then(response => response.json());
 }
@@ -174,9 +179,6 @@ cell.appendChild(ddRegion);
 //end dropdown
 
  */
-
-
-addTableOverview(activities, customer, bookingList, bookingLine);
 
 async function getByDate() {
   console.log("Fisken er stor");
