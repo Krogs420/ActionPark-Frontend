@@ -140,10 +140,8 @@ async function postBookingLine(activity) {
   const url = 'http://localhost:8080/api/booking-line/add'
   const booklingline = {}
   booklingline.activity = activity;
-
   booklingline.activityTime = activity.activityTime
 
-  console.log(JSON.stringify(booklingline))
   const fetchOptions = {
     method: "POST",
     headers: {"Content-Type": "application/json"},
