@@ -52,7 +52,7 @@ async function postFormDataAsJson(url, formData) {
   return response;
 }
 
-async function getBooking(customer, id){
+async function getBooking(customer, id) {
   const url = 'http://localhost:8080/api/booking/' + id;
   const booking = await fetch(url).then(response => response.json());
   booking.customer = customer;
@@ -60,7 +60,7 @@ async function getBooking(customer, id){
 
 }
 
-async function updateBooking(booking){
+async function updateBooking(booking) {
   const url = 'http://localhost:8080/api/booking/update/' + booking.bookingId;
 
   const fetchOptions = {

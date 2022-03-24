@@ -158,5 +158,3 @@ async function postBookingLine(activity) {
   }
   return response;
 }
-
-
