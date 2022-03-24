@@ -64,9 +64,18 @@ function addBookinglineToBooking(activity, time) {
   td2.textContent = time.toString();
   const td3 = document.createElement('td')
   td3.textContent = activity.activityPrice
+  const deleteButton = document.createElement('button')
+  deleteButton.addEventListener('click',() => {
+    td1.remove();
+    td2.remove()
+    td3.remove()
+    deleteButton.remove()
+  })
+  deleteButton.textContent = "delete"
   tableRow.append(td1);
   tableRow.append(td2);
   tableRow.append(td3);
+  tableRow.append(deleteButton)
   bookingTable.append(tableRow)
 
 
@@ -79,23 +88,6 @@ function bookingTotal() {
     sum += bookingLine.activityPrice;
   }
   totalCell.textContent = sum;
-}
-
-function addActivity(activity) {
-  const rowCount = activityTable.rows.length;
-  let row = activityTable.insertRow(rowCount);
-  let colCount = 0;
-
-  //Sætter Aktivitets
-  let cell = row.insertCell(colCount++);
-  cell.innerText = activity.activityName;
-
-  //Billede til aktivitet
-  cell = row.insertCell(colCount++);
-  const imgTag = document.createElement('img');
-  imgTag.setAttribute("src", activity.activityImageHref);
-  imgTag.innerText = activity.name;
-  cell.appendChild(imgTag);
 }
 
 async function postBooking() {
@@ -142,9 +134,18 @@ bookingBttn.addEventListener('click', async () => {
 })
 
 
-function createActivityMap() {
-  out("create table");
-  activityMap.forEach(activity => createActivities(activity))
+async function deleteBookingLine(){
+
+  const deleteURL ="http:localhost:8080/api/delete/{id}"
+
+  const fetchoptions =   {method: "DELETE",
+    headers: {"Content-Type": "application/json"},
+
+};
+
+  const response = await fetch(deleteURL, fetchoptions)
+  return response
+
 }
 
 async function postBookingLine(activity) {
