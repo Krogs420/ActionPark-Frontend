@@ -2,13 +2,9 @@ const activities = 'http://localhost:8080/api/activity/all-activities';
 const activityTable = document.getElementById("activityTable")
 const bookingTable = document.getElementById('bline-table')
 const bookingBttn = document.getElementById('book-button')
-const bookingLineArray = []
-const out = function (str) {
-  console.log(str)
-}
-out(bookingLineArray)
-const activityMap = new Map;
-createActivities()
+const activityArray = []
+
+createActivities().catch(err => console.error(err));
 
 function fetchActivities() {
   return fetch(activities).then(response => response.json());
@@ -48,7 +44,7 @@ async function createActivities() {
       timeName.addEventListener('click', () => {
         addBookinglineToBooking(activity, times[i])
         activity.activityTime = times[i];
-        bookingLineArray.push(activity);
+        activityArray.push(activity);
         bookingTotal();
 
       })
@@ -75,7 +71,7 @@ function addBookinglineToBooking(activity, time) {
 function bookingTotal() {
   const totalCell = document.getElementById('total');
   let sum = 0;
-  for (bookingLine of bookingLineArray) {
+  for (bookingLine of activityArray) {
     sum += bookingLine.activityPrice;
   }
   totalCell.textContent = sum;
@@ -106,7 +102,7 @@ async function postBooking() {
     contenderAmount: 4,
   }
 
-  for (let activity of bookingLineArray) {
+  for (let activity of activityArray) {
     const test = await postBookingLine(activity).then(response => response.json())
     const test2 = await test;
     bookingObjsArray.push(test2)
@@ -140,12 +136,6 @@ bookingBttn.addEventListener('click', async () => {
   await postBooking();
   location.href = 'form.html'
 })
-
-
-function createActivityMap() {
-  out("create table");
-  activityMap.forEach(activity => createActivities(activity))
-}
 
 async function postBookingLine(activity) {
 
