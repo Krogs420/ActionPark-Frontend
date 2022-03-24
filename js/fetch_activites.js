@@ -13,7 +13,6 @@ function fetchActivities() {
 async function createActivities() {
   const activityList = await fetchActivities();
   for (let activity of activityList) {
-    out(activity)
     let parent = document.getElementById("parent")
     let activityName = document.createElement("div");
     activityName.classList.add("activity-box");
@@ -38,6 +37,7 @@ async function createActivities() {
       let timeName = document.createElement("button");
       timeName.setAttribute('id', i);
       timeName.classList.add("time-button");
+      timeName.addEventListener('click', () =>timeName.style.backgroundColor = "red");
       const tidspunkt = document.createTextNode(times[i]);
       timeName.append(tidspunkt);
       timeTable.append(timeName);
@@ -46,7 +46,6 @@ async function createActivities() {
         activity.activityTime = times[i];
         activityArray.push(activity);
         bookingTotal();
-
       })
     }
   }

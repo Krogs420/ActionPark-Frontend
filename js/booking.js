@@ -8,13 +8,9 @@ $(document).ready(function () {
   });
 });
 
-async function clickButton() {
-  out("button should be red")
-  return document.getElementsByClassName('time-button').backgroundColor = "white";
-}
+
+
 
 const pbCreateTimeTable = document.getElementById("btn2");
 const timeTable = document.getElementById("timetable")
 
-
-pbCreateTimeTable.addEventListener('click', createTimeRows)
