@@ -28,12 +28,15 @@
       <div class="col-lg-12" style="margin-top:10px;">
         <label class="form-group control-label col-lg-2">vælg en dag *</label>
         <div class="input-group col-lg-6">
-          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-          <input type="text" class="form-control datepicker dateinput" id="document_date" name="document_date"
-                 value="" data-date-format="yyyy-mm-dd" readonly>
+          <input type="date" class="input-search" id="document_date" name="document_date"
+                 value="" data-date-format="yyyy-mm-dd">
           <button class="search-button" id="search-button">Søg</button>
+          <input type="text" class="input-search" id="text-input-search" name="text-input-search" placeholder="Søg på id, telefonnr eller instruktør..">
+          <button class="search-button" id="search-button2">Søg</button>
+          <br>
           <br>
         </div>
+
       </div>
     </div>
 
@@ -52,7 +55,7 @@
         </thead>
       </table>
     </div>
-    </div>
+  </div>
 
 
 </div>

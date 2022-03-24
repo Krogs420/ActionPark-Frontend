@@ -46,14 +46,6 @@ tr:nth-child(odd) {
 }
 
 
-#booking-box button {
-  display: inline-block;
-  width: 150px;
-  height: 50px;
-  background-color: black;
-  color: white;
-}
-
 .activities {
   width: 100%;
 
@@ -164,3 +156,19 @@ table{
 th, td{
   text-align: center;
 }
+
+.input-search {
+  width: 30%;
+  height: 30px;
+  margin: 5px;
+}
+
+.search-button{
+  display: inline-block;
+  width: 75px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  margin: 5px;
+}
+
