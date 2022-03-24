@@ -110,13 +110,10 @@ async function postBooking() {
   }
   booking1.bookingLines = bookingObjsArray
 
-  const bookingDate = document.getElementById('document_date').value;
-  console.log(bookingDate);
-  const bookingDate2 = new Date(bookingDate);
-  console.log(bookingDate2);
-  const bookingDate3 = bookingDate2.toLocaleDateString('en-CA');
-  console.log(bookingDate3);
-  booking1.bookingDate = bookingDate3;
+  const getBookingDate = document.getElementById('document_date').value;
+  const bookingDate = new Date(getBookingDate);
+  const bookingDateFormat = bookingDate.toLocaleDateString('en-CA');
+  booking1.bookingDate = bookingDateFormat;
 
   const url = 'http://localhost:8080/api/booking/add'
 
