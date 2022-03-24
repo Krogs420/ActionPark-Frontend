@@ -1,7 +1,9 @@
+let times = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
 const activities = 'http://localhost:8080/api/activity/all-activities';
 const activityTable = document.getElementById("activityTable")
 const bookingTable = document.getElementById('bline-table')
 const bookingBttn = document.getElementById('book-button')
+const timeTable = document.getElementById("timetable")
 const activityArray = []
 
 createActivities().catch(err => console.error(err));
@@ -157,3 +159,13 @@ async function postBookingLine(activity) {
   }
   return response;
 }
+
+
+$(document).ready(function () {
+  $('.fa-calendar').click(function () {
+    $(document).ready(function () {
+      $("#document_date").datepicker().focus();
+    });
+  });
+});
+
