@@ -25,7 +25,7 @@ async function handleFormSubmit(event) {
     const customer = await postFormDataAsJson(url, formData).then(response => response.json());
     await getBooking(customer, localStorage["booking-id"])
     localStorage.clear();
-    location.href = 'confirmation.html';
+    location.href = "confirmation.html";
   } catch (err) {
     alert(err.message);
     out(err);
@@ -55,10 +55,16 @@ async function postFormDataAsJson(url, formData) {
 async function getBooking(customer, id) {
   const url = 'http://localhost:8080/api/booking/' + id;
   const booking = await fetch(url).then(response => response.json());
+  const instructor = await fetch('http://localhost:8080/api/instructor/1').then(response => response.json())
   booking.customer = customer;
+  for (bookingLine of booking.bookingLines) {
+    bookingLine.instructor = instructor;
+    await updateBookingLine(bookingLine)
+    console.log(bookingLine)
+  }
   await updateBooking(booking);
-
 }
+
 
 async function updateBooking(booking) {
   const url = 'http://localhost:8080/api/booking/update/' + booking.bookingId;
@@ -77,4 +83,20 @@ async function updateBooking(booking) {
   return response;
 }
 
+async function updateBookingLine(bookingLine) {
+  const url = 'http://localhost:8080/api/booking-line/update/' + bookingLine.bookingLineId;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bookingLine)
+  };
+
+  const response = await fetch(url, fetchOptions)
+  if (!response) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+  return response;
+}
 
