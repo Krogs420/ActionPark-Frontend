@@ -118,9 +118,10 @@ function bookingTotal() {
 async function postBooking() {
   let bookingObjsArray = [];
 
+  const contenderAmountInput = document.getElementById('contender-amount')
   //skal komme et andet sted fra, hard coded for nu
   const booking1 = {
-    contenderAmount: 4,
+    contenderAmount: contenderAmountInput.value
   }
 
   for (let activity of activityArray) {

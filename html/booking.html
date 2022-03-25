@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="allback-book">
-<div id="header" class="header"></div>
+  <div id="header" class="header"></div>
   <div class="bline-div">
     <table id="bline-table" class="bline-table">
       <th colspan="4">Booking List</th>
@@ -36,22 +36,24 @@
 
     <button id="book-button" class="btn btn-primary">Book valgte</button>
   </div>
-<div id="content">
+  <div id="content">
 
 
-  <div id="booking-box">
-    <!--  <button id="pbCreateTimeTable">Vælg Dag</button> -->
-    <div class="col-lg-12" style="margin-top:10px;">
-      <label class="form-group control-label col-lg-2">vælg en dag *</label>
-      <div class="input-group col-lg-6">
-        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-        <input type="date" class="input-search" id="document_date" name="document_date"
-               value="" data-date-format="yyyy-mm-dd">
+    <div id="booking-box">
+      <!--  <button id="pbCreateTimeTable">Vælg Dag</button> -->
+      <div class="col-lg-12" style="margin-top:10px;">
+        <label class="form-group control-label col-lg-2">vælg en dag *</label>
+        <div class="input-group col-lg-6">
+          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+          <input type="date" class="input-search" id="document_date" name="document_date"
+                 value="" data-date-format="yyyy-mm-dd">
+          <input type="number" id="contender-amount" placeholder="Antal deltagere..">
+        </div>
+
       </div>
     </div>
-  </div>
 
-  <div id="parent"></div>
+    <div id="parent"></div>
 
   </div>
 </div>
