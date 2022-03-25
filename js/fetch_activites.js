@@ -1,7 +1,6 @@
 let times = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
 const bookingByDate = 'http://localhost:8080/api/booking/bookingdate/';
 const activities = 'http://localhost:8080/api/activity/all-activities';
-const activityTable = document.getElementById("activityTable")
 const bookingTable = document.getElementById('bline-table')
 const bookingBttn = document.getElementById('book-button')
 const timeTable = document.getElementById("timetable")
@@ -123,6 +122,8 @@ async function postBooking() {
     contenderAmount: 4,
   }
 
+
+
   for (let activity of activityArray) {
     const test = await postBookingLine(activity).then(response => response.json())
     const test2 = await test;
@@ -176,6 +177,8 @@ async function postBookingLine(activity) {
   const booklingline = {}
   booklingline.activity = activity;
   booklingline.activityTime = activity.activityTime
+
+
 
   const fetchOptions = {
     method: "POST",
